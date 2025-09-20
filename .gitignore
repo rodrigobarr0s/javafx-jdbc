@@ -1,0 +1,45 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Java crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Build folders
+bin/
+build/
+dist/
+
+# VS Code settings
+.vscode/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# BlueJ
+*.ctxt
+
+# NetBeans
+nbproject/
+nbproject/private/
+nbbuild/
+nbdist/
+
+# Eclipse
+.settings/
