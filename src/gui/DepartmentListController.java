@@ -19,6 +19,7 @@ import model.services.DepartmentService;
 public class DepartmentListController implements Initializable {
 
     private DepartmentService service;
+    
     private ObservableList<Department> observableList;
 
     @FXML
