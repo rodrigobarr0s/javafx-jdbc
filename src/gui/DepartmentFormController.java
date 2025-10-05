@@ -3,17 +3,25 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import db.DbException;
+import gui.util.Alerts;
 import gui.util.Constraints;
+import gui.util.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.entities.Department;
+import model.services.DepartmentService;
 
 public class DepartmentFormController implements Initializable {
 
     private Department department;
+
+    private DepartmentService service;
 
     @FXML
     private TextField textFieldId;
@@ -34,14 +42,31 @@ public class DepartmentFormController implements Initializable {
         this.department = department;
     }
 
-    @FXML
-    public void onButtonSaveAction() {
-        System.out.println("onButtonSaveAction");
+    public void setService(DepartmentService service) {
+        this.service = service;
     }
 
     @FXML
-    public void onButtonCancelAction() {
-        System.out.println("onButtonCancelAction");
+    public void onButtonSaveAction(ActionEvent event) {
+        if (department == null) {
+            throw new IllegalStateException("department was null");
+        }
+        if (service == null) {
+            throw new IllegalStateException("service was null");
+        }
+        try {
+            department = getFormData();
+            service.saveOrUpdate(department);
+            Utils.currentStage(event).close();
+        } catch (DbException e) {
+            Alerts.showError("Error saving department", null, e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onButtonCancelAction(ActionEvent event) {
+        Stage stage = Utils.currentStage(event);
+        stage.close();
     }
 
     @Override
@@ -60,6 +85,13 @@ public class DepartmentFormController implements Initializable {
         }
         textFieldId.setText(String.valueOf(department.getId()));
         textFieldName.setText(department.getName());
+    }
+
+    private Department getFormData() {
+        Department department = new Department();
+        department.setId(Utils.tryParseToInt(textFieldId.getText()));
+        department.setName(textFieldName.getText());
+        return department;
     }
 
 }
