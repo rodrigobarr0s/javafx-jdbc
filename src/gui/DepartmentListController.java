@@ -52,7 +52,7 @@ public class DepartmentListController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resource) {
+    public void initialize(URL location, ResourceBundle resources) {
         initializeNodes();
     }
 

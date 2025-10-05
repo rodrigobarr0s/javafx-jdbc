@@ -143,7 +143,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		try {
 
 			// @formatter:off
-			st = conn.prepareStatement("SELECT * FROM department ORDER BY Name");
+			st = conn.prepareStatement("SELECT * FROM department ORDER BY Id");
 			// @formatter:on
 
 			rs = st.executeQuery();

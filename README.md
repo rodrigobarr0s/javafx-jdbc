@@ -7,6 +7,7 @@ user=developer
 password=1234567
 dburl=jdbc:mysql://localhost:3307/coursejdbc
 useSSL=false
+allowPublicKeyRetrieval=true
 ```
 
 #### Detalhes
@@ -14,6 +15,7 @@ useSSL=false
 - `password`: senha do usuário
 - `dburl`: URL JDBC com host, porta e nome do banco
 - `useSSL`: define se a conexão deve usar SSL (desativado para ambiente local)
+- `allowPublicKeyRetrieval`: permite a recuperação da chave pública para autenticação com MySQL 8+.
 
 #### Local recomendado
 Coloque o arquivo `db.properties` na raiz do seu projeto ou na pasta `resources`, dependendo da estrutura do seu projeto Java.
