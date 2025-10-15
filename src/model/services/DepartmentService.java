@@ -21,4 +21,11 @@ public class DepartmentService {
             dao.update(department);
         }
     }
+
+    public void remove(Department department) {
+        if (department == null) {
+            throw new IllegalStateException("Department cannot be null");
+        }
+        dao.deleteById(department.getId());
+    }
 }
