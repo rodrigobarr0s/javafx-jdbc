@@ -14,18 +14,18 @@ public class DepartmentService {
         return dao.findAll();
     }
 
-    public void saveOrUpdate(Department department) {
-        if (department.getId() == null) {
-            dao.insert(department);
+    public void saveOrUpdate(Department obj) {
+        if (obj.getId() == null) {
+            dao.insert(obj);
         } else {
-            dao.update(department);
+            dao.update(obj);
         }
     }
 
-    public void remove(Department department) {
-        if (department == null) {
+    public void remove(Department obj) {
+        if (obj == null) {
             throw new IllegalStateException("Department cannot be null");
         }
-        dao.deleteById(department.getId());
+        dao.deleteById(obj.getId());
     }
 }
