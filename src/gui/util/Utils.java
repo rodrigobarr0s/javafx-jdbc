@@ -1,14 +1,18 @@
 package gui.util;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class Utils {
     public static Stage currentStage(ActionEvent event) {
@@ -18,8 +22,8 @@ public class Utils {
     public static Integer tryParseToInt(String string) {
         try {
             return Integer.parseInt(string);
-        } catch (NumberFormatException e) {
 
+        } catch (NumberFormatException e) {
             return null;
         }
     }
@@ -50,6 +54,25 @@ public class Utils {
                 }
             };
             return cell;
+        });
+    }
+
+    public static void formatDatePicker(DatePicker datePicker, String format) {
+        datePicker.setConverter(new StringConverter<LocalDate>() {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(format);
+            {
+                datePicker.setPromptText(format.toLowerCase());
+            }
+
+            @Override
+            public String toString(LocalDate date) {
+                return (date != null) ? dateTimeFormatter.format(date) : "";
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                return (string != null && !string.isEmpty()) ? LocalDate.parse(string, dateTimeFormatter) : null;
+            }
         });
     }
 
