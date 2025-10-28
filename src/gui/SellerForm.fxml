@@ -50,7 +50,7 @@
             <TextField fx:id="textFieldEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="textFieldBaseSalary" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Department" GridPane.rowIndex="5" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="comboBoxDepartment" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <DatePicker fx:id="datePickerBirthDate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label fx:id="labelErrorEmail" textFill="#ed0c0c" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <GridPane.margin>
