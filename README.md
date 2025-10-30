@@ -1,3 +1,81 @@
+# JavaFX JDBC CRUD
+
+[![License](https://img.shields.io/npm/l/react)](https://github.com/rodrigobarr0s/javafx-jdbc/blob/main/LICENSE)
+
+## Sobre o Projeto
+
+Este repositório contém uma aplicação desktop desenvolvida com **JavaFX** e **JDBC**, estruturada em camadas para realizar operações CRUD com banco de dados **MySQL**. A interface gráfica foi construída com FXML e o backend utiliza JDBC puro para persistência.
+
+## Tecnologias Utilizadas
+
+- **Java 17**
+- **JavaFX**
+- **FXML**
+- **JDBC**
+- **MySQL**
+- **Maven**
+
+## Modelo Conceitual
+
+A aplicação gerencia entidades como **Departamentos** e **Vendedores**, com funcionalidades de cadastro, edição, listagem e exclusão. A estrutura segue o padrão MVC com DAO e serviços.
+
+## Estrutura do Projeto
+
+```plaintext
+src/
+├── application/         → Classe principal (Main.java)
+├── db/                  → Conexão e exceções JDBC
+├── gui/                 → FXMLs e controllers da interface
+│   ├── util/            → Utilitários de GUI
+│   └── listeners/       → Interface para eventos de mudança
+├── model/
+│   ├── entities/        → Classes de domínio (Seller, Department)
+│   ├── dao/             → Interfaces DAO
+│   ├── dao/impl/        → Implementações JDBC dos DAOs
+│   ├── services/        → Camada de serviços
+│   └── exceptions/      → Validações de formulário
+```
+
+## Dependências Necessárias
+
+Para que o projeto funcione corretamente, é necessário configurar as seguintes dependências:
+
+#### 1. **MySQL Connector/J**
+
+O **MySQL Connector/J** é o driver JDBC que permite a comunicação entre a aplicação Java e o banco de dados MySQL.
+
+- **Download**: [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
+- Após o download, adicione o `.jar` do conector ao **classpath** ou à pasta de bibliotecas do seu projeto.
+
+#### 2. **JavaFX (via Gluon)**
+
+A aplicação utiliza interface gráfica com JavaFX, é necessário baixar as bibliotecas JavaFX compatíveis com sua versão do Java.
+
+- **Download**: [JavaFX SDK – Gluon](https://gluonhq.com/products/javafx/)
+- Após o download, adicione os `.jar` da pasta `lib` ao classpath do projeto.
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+
+- Java 17+
+- Maven 3.8+
+- IDE com suporte a JavaFX (IntelliJ, Eclipse...)
+
+### Passos para execução
+
+```bash
+# Clonar o repositório
+git clone https://github.com/seuusuario/javafx-jdbc.git
+
+# Acessar o diretório do projeto
+cd javafx-jdbc
+
+# Executar via IDE (recomenda-se executar a classe Main.java)
+```
+
+> A aplicação é desktop, portanto não roda em navegador. A interface será exibida em uma janela JavaFX.
+
 ## Arquivo `db.properties`
 
 Este arquivo contém as configurações de conexão JDBC para o banco de dados MySQL usado no projeto:
@@ -11,14 +89,13 @@ allowPublicKeyRetrieval=true
 ```
 
 #### Detalhes
-- `user`: nome do usuário do banco de dados
-- `password`: senha do usuário
-- `dburl`: URL JDBC com host, porta e nome do banco
-- `useSSL`: define se a conexão deve usar SSL (desativado para ambiente local)
-- `allowPublicKeyRetrieval`: permite a recuperação da chave pública para autenticação com MySQL 8+.
+- `user`: nome do usuário do banco de dados  
+- `password`: senha do usuário  
+- `dburl`: URL JDBC com host, porta e nome do banco  
+- `useSSL`: define se a conexão deve usar SSL (desativado para ambiente local)  
+- `allowPublicKeyRetrieval`: permite a recuperação da chave pública para autenticação com MySQL 8+
 
-#### Local recomendado
-Coloque o arquivo `db.properties` na raiz do seu projeto ou na pasta `resources`, dependendo da estrutura do seu projeto Java.
+**Local recomendado**: coloque o arquivo `db.properties` na raiz do seu projeto ou na pasta `resources`, dependendo da estrutura do seu projeto Java.
 
 ## Script Docker para MySQL
 
@@ -36,11 +113,10 @@ mysql
 ```
 
 #### Detalhes do Script
-- Cria o banco `coursejdbc`
-- Define o usuário `developer` com senha `1234567`
-- Define a senha do root como `root`
+- Cria o banco `coursejdbc`  
+- Define o usuário `developer` com senha `1234567`  
+- Define a senha do root como `root`  
 - Expõe a porta `3306` do container na porta `3307` da máquina host
-
 
 ## Script MySQL para Dataseed
 
@@ -81,24 +157,8 @@ INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) VALUES
   ('Alex Pink','bob@gmail.com','1997-03-04 00:00:00',3000,2);
 ```
 
-## Dependências Necessárias
+## Autor
 
-Para que o projeto funcione corretamente, é necessário configurar as seguintes dependências:
-
-#### 1. **MySQL Connector/J**
-
-O **MySQL Connector/J** é o driver JDBC que permite a comunicação entre a aplicação Java e o banco de dados MySQL.
-
-- **Download**: [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Após o download, adicione o `.jar` do conector ao **classpath** ou à pasta de bibliotecas do seu projeto.
-
-#### 2. **JavaFX (via Gluon)**
-
-A aplicação utiliza interface gráfica com JavaFX, é necessário baixar as bibliotecas JavaFX compatíveis com sua versão do Java.
-
-- **Download**: [JavaFX SDK – Gluon](https://gluonhq.com/products/javafx/)
-- Após o download:
-  - Adicione os `.jar` da pasta `lib` ao classpath do projeto.
-  
----
+**Rodrigo Barros**  
+https://www.linkedin.com/in/rodrigobarr0s
 
