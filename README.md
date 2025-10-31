@@ -156,6 +156,23 @@ INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) VALUES
   ('Donald Blue','donald@gmail.com','2000-01-09 00:00:00',4000,3),
   ('Alex Pink','bob@gmail.com','1997-03-04 00:00:00',3000,2);
 ```
+## Capturas de Tela
+
+### Tela de listagem de vendedores
+
+![Listagem de vendedores](https://raw.githubusercontent.com/rodrigobarr0s/javafx-jdbc/refs/heads/main/img/lista.png)
+
+### Formulário de inserção
+
+![Formulário de inserção](https://raw.githubusercontent.com/rodrigobarr0s/javafx-jdbc/refs/heads/main/img/formulario-insercao.png)
+
+### Formulário de edição
+
+![Formulário de edição](https://raw.githubusercontent.com/rodrigobarr0s/javafx-jdbc/refs/heads/main/img/formulario-edicao.png)
+
+### Alerta de exclusão
+
+![Alerta de exclusão](https://raw.githubusercontent.com/rodrigobarr0s/javafx-jdbc/refs/heads/main/img/alert-exclusao.png)
 
 ## Autor
 
